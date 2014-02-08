@@ -7,17 +7,16 @@ import net.minecraft.item.ItemStack;
 
 public class GlowstoneBricks extends Block {
 
-	public GlowstoneBricks(int id) {
-		super(id, Material.ground);
+	public GlowstoneBricks() {
+		super(Material.ground);
 
+		setHarvestLevel("pickaxe", 0);
+		
 		setResistance(100.0f);
 		setHardness(3.5f);
-		setLightValue(1.0f);
-		setStepSound(soundStoneFootstep);
+		setLightLevel(1.0f);
+		setStepSound(soundTypeStone);
 
 		setCreativeTab(CreativeTabs.tabBlock);
-		setUnlocalizedName("glowstoneBricks");
-		setTextureName("redhot:glowstoneBricks");
 	}
-
 }

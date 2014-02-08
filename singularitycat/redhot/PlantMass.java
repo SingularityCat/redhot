@@ -12,12 +12,10 @@ import net.minecraft.world.World;
 
 public class PlantMass extends ItemFood {
 
-	public PlantMass(int id) {
-		super(id, 2, 0.5f, true);
+	public PlantMass() {
+		super(2, 0.5f, true);
 		setMaxStackSize(64);
 		setCreativeTab(CreativeTabs.tabMisc);
-		setUnlocalizedName("plantMass");
-		setTextureName("redhot:plantMass");
 	}
 	
 	public void onFoodEaten(ItemStack itemStack, World world, EntityPlayer player)

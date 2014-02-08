@@ -7,17 +7,17 @@ import net.minecraft.item.ItemStack;
 
 public class ImpactedStone extends Block {
 
-	public ImpactedStone(int id) {
-		super(id, Material.ground);
+	public ImpactedStone() {
+		super(Material.ground);
 
+		setHarvestLevel("pickaxe", 0);
+		
 		setResistance(500.0f);
 		setHardness(4.0f);
-		setLightValue(0.0f);
-		setStepSound(soundStoneFootstep);
+		setLightLevel(0.0f);
+		setStepSound(soundTypeStone);
 
 		setCreativeTab(CreativeTabs.tabBlock);
-		setUnlocalizedName("impactedStone");
-		setTextureName("redhot:impactedStone");
 	}
 
 }
