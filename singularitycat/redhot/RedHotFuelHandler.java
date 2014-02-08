@@ -9,7 +9,7 @@ public class RedHotFuelHandler implements IFuelHandler {
 	public int getBurnTime(ItemStack fuel) {
 		int burnTime = 0;
 		
-		if(fuel.itemID == RedHot.plantMass.itemID)
+		if(fuel.getItem() == RedHot.plantMass)
 		{
 			/* Enough to smelt 1 item. */
 			burnTime = 200;
