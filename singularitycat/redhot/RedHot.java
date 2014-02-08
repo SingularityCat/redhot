@@ -20,24 +20,23 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 
-@Mod(modid=RedHot.mod_modid, name=RedHot.mod_name, version=RedHot.mod_version)
+@Mod(modid=RedHot.modid, name=RedHot.name, version=RedHot.version)
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class RedHot {
-    public static final String mod_modid="RedHot";
-    public static final String mod_name="Red Hot";
-    public static final String mod_version="0.0.5";
+    public static final String modid="redhot";
+    public static final String name="Red Hot";
+    public static final String version="0.0.5";
 
     public static final Random RNG = new Random(); 
     public static Configuration config;
     public static Logger logger;
 
-    @Instance(mod_modid)
+    @Instance(modid)
     public static RedHot instance;
 
     @SidedProxy(clientSide="singularitycat.redhot.ClientProxy", serverSide="singularitycat.redhot.CommonProxy")
@@ -53,7 +52,7 @@ public class RedHot {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        logger = Logger.getLogger(mod_modid);
+        logger = Logger.getLogger(modid);
         logger.setParent(FMLLog.getLogger());
         
         config = new Configuration(event.getSuggestedConfigurationFile());
@@ -81,22 +80,20 @@ public class RedHot {
     }
 
     public void initGlowstoneBricks()
-    {
-    	//ItemStack glowstoneBricksStack = new ItemStack(glowstoneBricks);
-    	
+    {    	
     	MinecraftForge.setBlockHarvestLevel(glowstoneBricks, "pickaxe", 0);
-    	LanguageRegistry.addName(glowstoneBricks, "Glowstone Bricks");
-    	GameRegistry.registerBlock(glowstoneBricks, "glowstoneBricks");
+    	GameRegistry.registerBlock(glowstoneBricks, "redhot_glowstoneBricks");
 
+    	logger.info("Adding glowstone bricks <-> glowstone recipes");
         GameRegistry.addShapedRecipe(
-            new ItemStack(glowstoneBricks, 4),
+            new ItemStack(glowstoneBricks, 16),
             "GG",
             "GG",
             'G', new ItemStack(Block.glowStone)
         );
 
         GameRegistry.addShapedRecipe(
-            new ItemStack(Block.glowStone, 4),
+            new ItemStack(Block.glowStone, 1),
             "GG",
             "GG",
             'G', new ItemStack(glowstoneBricks)
@@ -104,13 +101,11 @@ public class RedHot {
     }
     
     public void initImpactedStone()
-    {
-    	//ItemStack glowstoneBricksStack = new ItemStack(glowstoneBricks);
-    	
+    {    	
     	MinecraftForge.setBlockHarvestLevel(impactedStone, "pickaxe", 0);
-    	LanguageRegistry.addName(glowstoneBricks, "Impacted Stone");
-    	GameRegistry.registerBlock(glowstoneBricks, "impactedStone");
+    	GameRegistry.registerBlock(impactedStone, "redhot_impactedStone");
 
+    	logger.info("Adding impacted stone <-> cobblestone recipes");
         GameRegistry.addShapedRecipe(
             new ItemStack(impactedStone, 4),
             "CC",
@@ -140,11 +135,12 @@ public class RedHot {
     		new ItemStack(Item.seeds, 1, OreDictionary.WILDCARD_VALUE)
     	};
     	
-    	LanguageRegistry.addName(plantMass, "Plant Mass");
-    	GameRegistry.registerItem(plantMass, "plantMass");
+    	GameRegistry.registerItem(plantMass, "redhot_plantMass");
     	
+    	logger.info("Registering plant mass fuel handler");
         GameRegistry.registerFuelHandler(new RedHotFuelHandler());
         
+        logger.info("Adding plant mass recipes.");
         for(ItemStack i : biomass)
         {
         	for(ItemStack j : biomass)
@@ -153,6 +149,7 @@ public class RedHot {
         	}
         }
         
+        logger.info("Adding plant mass -> dirt recipe");
         GameRegistry.addShapedRecipe(
         	new ItemStack(Block.dirt, 4),
         	"PP",

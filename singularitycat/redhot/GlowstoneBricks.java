@@ -10,7 +10,7 @@ public class GlowstoneBricks extends Block {
 	public GlowstoneBricks(int id) {
 		super(id, Material.ground);
 
-		setResistance(250.0f);
+		setResistance(100.0f);
 		setHardness(3.5f);
 		setLightValue(1.0f);
 		setStepSound(soundStoneFootstep);
