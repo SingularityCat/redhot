@@ -3,7 +3,6 @@ package singularitycat.redhot;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemStack;
 
 public class GlowstoneBricks extends Block {
 

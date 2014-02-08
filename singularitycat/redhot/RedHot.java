@@ -1,19 +1,15 @@
 package singularitycat.redhot;
 
-//import java.util.logging.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-
-import cpw.mods.fml.common.FMLLog;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
