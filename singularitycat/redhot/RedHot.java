@@ -30,7 +30,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class RedHot {
     public static final String modid="redhot";
     public static final String name="Red Hot";
-    public static final String version="0.0.5";
+    public static final String version="0.0.6";
 
     public static final Random RNG = new Random(); 
     public static Configuration config;
