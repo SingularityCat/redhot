@@ -9,6 +9,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 import net.minecraft.init.Blocks;
@@ -47,6 +48,10 @@ public class RedHot {
     public static Block glowstoneBricks;
     public static Block impactedStone;
     
+    /* ItemBlocks */
+    public static ItemBlock glowstoneBricksItem;
+    public static ItemBlock impactedStoneItem;
+    
     /* Items */
     public static Item plantMass;
 
@@ -59,13 +64,22 @@ public class RedHot {
         config.load();
         
         glowstoneBricks = new GlowstoneBricks();
-        GameRegistry.registerBlock(glowstoneBricks, "glowstoneBricks");
+        glowstoneBricks.setRegistryName(modid, GlowstoneBricks.name);
+        glowstoneBricksItem = new ItemBlock(glowstoneBricks);
+        glowstoneBricksItem.setRegistryName(glowstoneBricks.getRegistryName());
+        GameRegistry.register(glowstoneBricks);
+        GameRegistry.register(glowstoneBricksItem);
 
         impactedStone = new ImpactedStone();
-        GameRegistry.registerBlock(impactedStone, "impactedStone");
+        impactedStone.setRegistryName(modid, ImpactedStone.name);
+        impactedStoneItem = new ItemBlock(impactedStone);
+        impactedStoneItem.setRegistryName(impactedStone.getRegistryName());
+        GameRegistry.register(impactedStone);
+        GameRegistry.register(impactedStoneItem);
         
         plantMass = new PlantMass();
-        GameRegistry.registerItem(plantMass, "plantMass");
+        plantMass.setRegistryName(modid, PlantMass.name);
+        GameRegistry.register(plantMass);
         
         logger.info("Registering plant mass fuel handler");
         GameRegistry.registerFuelHandler(new RedHotFuelHandler());
@@ -173,10 +187,6 @@ public class RedHot {
         ItemStack ingotGoldStack = new ItemStack(Items.GOLD_INGOT, 1);
         ItemStack diamondStack = new ItemStack(Items.DIAMOND, 1);
         ItemStack clothStack = new ItemStack(Blocks.WOOL, 1, OreDictionary.WILDCARD_VALUE);
-
-        ItemStack glowstone_dustStack = new ItemStack(Items.GLOWSTONE_DUST, 1);
-        ItemStack redstoneStack = new ItemStack(Items.REDSTONE, 1);
-        ItemStack dye4Stack = new ItemStack(Items.DYE, 1, 4);
 
         /* Redstone / Glowstone recipes */
         logger.info("Adding redstone recipe");
