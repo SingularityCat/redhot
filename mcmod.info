@@ -1,10 +1,10 @@
 [
-{
-  "modid": "RedHot",
-  "name": "Red Hot",
-  "description": "Adds renewable crafting recipes for lava and more.",
-  "version": "0.0.6",
-  "authors": ["Elliot Thomas"],
-  "credits": "Made by SingularityCat"
-}
+    {
+        "modid": "RedHot",
+        "name": "Red Hot",
+        "description": "Adds renewable crafting recipes for lava and more.",
+        "version": "0.0.8",
+        "authors": ["Elliot Thomas"],
+        "credits": "Made by SingularityCat"
+    }
 ]
