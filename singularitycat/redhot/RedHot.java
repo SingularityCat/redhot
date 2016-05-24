@@ -18,7 +18,6 @@ import net.minecraft.init.Items;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -41,9 +40,6 @@ public class RedHot {
     @Instance(modid)
     public static RedHot instance;
 
-    @SidedProxy(clientSide="singularitycat.redhot.ClientProxy", serverSide="singularitycat.redhot.CommonProxy")
-    public static CommonProxy proxy;
-    
     /* Blocks */
     public static Block glowstoneBricks;
     public static Block impactedStone;
